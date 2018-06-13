@@ -1,0 +1,6 @@
+framework module Pods_XJHViewState_Example {
+  umbrella header "Pods-XJHViewState_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

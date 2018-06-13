@@ -1,0 +1,6 @@
+framework module XJHViewState {
+  umbrella header "XJHViewState-umbrella.h"
+
+  export *
+  module * { export * }
+}

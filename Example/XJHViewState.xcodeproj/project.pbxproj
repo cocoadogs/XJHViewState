@@ -37,9 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1336872E20AC1A4A1766A2C3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1336872E20AC1A4A1766A2C3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2027AAEE6E86313A123FDAC6 /* Pods-XJHViewState_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJHViewState_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XJHViewState_Tests/Pods-XJHViewState_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		3345ACEDB38220A2731C52F4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		3345ACEDB38220A2731C52F4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		33E1CE59607B53245E04BBB2 /* Pods_XJHViewState_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XJHViewState_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* XJHViewState_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XJHViewState_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -66,7 +66,7 @@
 		AC1D46029ED57465C221008F /* Pods-XJHViewState_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJHViewState_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XJHViewState_Tests/Pods-XJHViewState_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CFB4123A7F5013560A835239 /* Pods-XJHViewState_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJHViewState_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-XJHViewState_Example/Pods-XJHViewState_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E26EBE4C2AD7480D4D169402 /* Pods_XJHViewState_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XJHViewState_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9810B2C529F2294C53E4A1D /* XJHViewState.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = XJHViewState.podspec; path = ../XJHViewState.podspec; sourceTree = "<group>"; };
+		F9810B2C529F2294C53E4A1D /* XJHViewState.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XJHViewState.podspec; path = ../XJHViewState.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,10 +337,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-XJHViewState_Example/Pods-XJHViewState_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/XJHViewState/XJHViewState.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XJHViewState.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
