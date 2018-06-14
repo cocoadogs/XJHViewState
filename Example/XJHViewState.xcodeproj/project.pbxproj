@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0DD8703810F85B12E8264490 /* Pods_XJHViewState_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26EBE4C2AD7480D4D169402 /* Pods_XJHViewState_Example.framework */; };
+		15F9F29B20D23C0F00FEF0F7 /* XJHTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9F29A20D23C0F00FEF0F7 /* XJHTableViewController.m */; };
+		15F9F29E20D247FA00FEF0F7 /* XJHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9F29D20D247FA00FEF0F7 /* XJHWebViewController.m */; };
+		15F9F2A020D251EB00FEF0F7 /* rr.gif in Resources */ = {isa = PBXBuildFile; fileRef = 15F9F29F20D251EB00FEF0F7 /* rr.gif */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -38,6 +41,11 @@
 
 /* Begin PBXFileReference section */
 		1336872E20AC1A4A1766A2C3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		15F9F29920D23C0F00FEF0F7 /* XJHTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJHTableViewController.h; sourceTree = "<group>"; };
+		15F9F29A20D23C0F00FEF0F7 /* XJHTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJHTableViewController.m; sourceTree = "<group>"; };
+		15F9F29C20D247FA00FEF0F7 /* XJHWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJHWebViewController.h; sourceTree = "<group>"; };
+		15F9F29D20D247FA00FEF0F7 /* XJHWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJHWebViewController.m; sourceTree = "<group>"; };
+		15F9F29F20D251EB00FEF0F7 /* rr.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = rr.gif; path = ../../rr.gif; sourceTree = "<group>"; };
 		2027AAEE6E86313A123FDAC6 /* Pods-XJHViewState_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJHViewState_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XJHViewState_Tests/Pods-XJHViewState_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3345ACEDB38220A2731C52F4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		33E1CE59607B53245E04BBB2 /* Pods_XJHViewState_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XJHViewState_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +156,10 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* XJHViewController.h */,
 				6003F5A6195388D20070C39A /* XJHViewController.m */,
+				15F9F29920D23C0F00FEF0F7 /* XJHTableViewController.h */,
+				15F9F29A20D23C0F00FEF0F7 /* XJHTableViewController.m */,
+				15F9F29C20D247FA00FEF0F7 /* XJHWebViewController.h */,
+				15F9F29D20D247FA00FEF0F7 /* XJHWebViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -159,6 +171,7 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				15F9F29F20D251EB00FEF0F7 /* rr.gif */,
 				6003F595195388D20070C39A /* XJHViewState-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
@@ -276,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15F9F2A020D251EB00FEF0F7 /* rr.gif in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
@@ -359,8 +373,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15F9F29B20D23C0F00FEF0F7 /* XJHTableViewController.m in Sources */,
 				6003F59E195388D20070C39A /* XJHAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* XJHViewController.m in Sources */,
+				15F9F29E20D247FA00FEF0F7 /* XJHWebViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

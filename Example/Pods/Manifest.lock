@@ -6,6 +6,8 @@ PODS:
     - ReactiveObjC (~> 3.1.0)
 
 DEPENDENCIES:
+  - Masonry (~> 1.1.0)
+  - ReactiveObjC (~> 3.1.0)
   - XJHViewState (from `../`)
 
 SPEC REPOS:
@@ -22,6 +24,6 @@ SPEC CHECKSUMS:
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   XJHViewState: a654c7c8df50b22de3e7e7bbb68f8fb4af8bd26b
 
-PODFILE CHECKSUM: 1b388e8176fbc70d0630670ad8d3ea091ff924d9
+PODFILE CHECKSUM: a8bfdd187694d8c901389c2ca5e63eb1a5b86b5e
 
 COCOAPODS: 1.5.3
