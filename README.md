@@ -27,3 +27,10 @@ pod 'XJHViewState'
 ## License
 
 XJHViewState is available under the MIT license. See the LICENSE file for more info.
+
+## Gif
+
+![image](https://github.com/cocoadogs/XJHViewState/blob/master/rr.gif)
+
+
+
