@@ -113,10 +113,10 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 - (void)setViewState:(XJHViewState)currentState {
 	if (self.viewState != currentState) {
 		switch (self.viewState) {
-				case XJHViewStateDefault:
+			case XJHViewStateDefault:
 				//do nothing
 				break;
-				case XJHViewStateLoading:
+			case XJHViewStateLoading:
 			{
 				UIView *stateView = self.loadingView;
 				[UIView animateWithDuration:0.25
@@ -146,14 +146,14 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 		//经测试，上述情况不存在
 		UIView *stateView = nil;
 		switch (currentState) {
-				case XJHViewStateDefault:
+			case XJHViewStateDefault:
 			{
 				[UIView animateWithDuration:0.25 animations:^{
 					self.alpha = 1.0f;
 				}];
 			}
 				break;
-				case XJHViewStateLoading:
+			case XJHViewStateLoading:
 			{
 				stateView = self.loadingView;
 			}
@@ -171,19 +171,20 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 			[UIView animateWithDuration:0.25 animations:^{
 				stateView.alpha = 1.0f;
 			} completion:^(BOOL finished) {
-				UIEdgeInsets insets = self.stateProperties.loadingAreaInsets;
-				[stateView mas_makeConstraints:^(MASConstraintMaker *make) {
-					make.top.equalTo(self).offset(insets.top);
-					make.leading.equalTo(self).offset(insets.left);
-					make.bottom.equalTo(self).offset(-insets.bottom);
-					make.trailing.equalTo(self).offset(-insets.right);
-					if ([self isKindOfClass:[UIScrollView class]]) {
-						make.width.equalTo(self);
-						make.height.equalTo(self).offset(-insets.top-insets.bottom);
-					}
-				}];
-				[self bringSubviewToFront:stateView];
+				
 			}];
+			UIEdgeInsets insets = self.stateProperties.loadingAreaInsets;
+			[stateView mas_makeConstraints:^(MASConstraintMaker *make) {
+				make.top.equalTo(self).offset(insets.top);
+				make.leading.equalTo(self).offset(insets.left);
+				make.bottom.equalTo(self).offset(-insets.bottom);
+				make.trailing.equalTo(self).offset(-insets.right);
+				if ([self isKindOfClass:[UIScrollView class]]) {
+					make.width.equalTo(self);
+					make.height.equalTo(self).offset(-insets.top-insets.bottom);
+				}
+			}];
+			[self bringSubviewToFront:stateView];
 		}
 	}
 }
@@ -279,13 +280,13 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 - (const char *)stateViewKeyForState:(XJHViewState)state {
 	const char *stateKey;
 	switch (state) {
-			case XJHViewStateNoData:
+		case XJHViewStateNoData:
 			stateKey = kNoDataStateViewKey;
 			break;
-			case XJHViewStateError:
+		case XJHViewStateError:
 			stateKey = kErrorStateViewKey;
 			break;
-			case XJHViewStateNetworkFail:
+		case XJHViewStateNetworkFail:
 			stateKey = kNetworkFailStateViewKey;
 		default:
 			stateKey = "";
@@ -296,17 +297,17 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 
 - (void)tapAction:(XJHViewState)state {
 	switch (state) {
-			case XJHViewStateNoData:
+		case XJHViewStateNoData:
 		{
 			!self.stateProperties.noDataAction?:self.stateProperties.noDataAction();
 		}
 			break;
-			case XJHViewStateError:
+		case XJHViewStateError:
 		{
 			!self.stateProperties.errorAction?:self.stateProperties.errorAction();
 		}
 			break;
-			case XJHViewStateNetworkFail:
+		case XJHViewStateNetworkFail:
 		{
 			!self.stateProperties.networkAction?:self.stateProperties.networkAction();
 		}
