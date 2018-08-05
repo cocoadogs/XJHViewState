@@ -30,6 +30,8 @@ typedef void(^NetworkFailAction)(void);
 @property (nonatomic, strong) UIColor *titleColor;
 ///detail颜色
 @property (nonatomic, strong) UIColor *detailColor;
+///imageSize
+@property (nonatomic, assign) CGSize imageSize;
 
 
 ///垂直方向内容偏移，默认为0，居中，<0向上偏移， >0向下偏移

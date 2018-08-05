@@ -23,7 +23,8 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 							 titleFont:(UIFont *)titleFont
 							titleColor:(UIColor *)titleColor
 							detailFont:(UIFont *)detailFont
-						   detailColor:(UIColor *)detailColor;
+						   detailColor:(UIColor *)detailColor
+							 imageSize:(CGSize)imageSize;
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -35,7 +36,7 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 
 - (instancetype)initWithFrame:(CGRect)frame {
 	if (self = [super initWithFrame:frame]) {
-		self = [self initWithVerticalOffset:0 labelOffset:0 titleFont:nil titleColor:nil detailFont:nil detailColor:nil];
+		self = [self initWithVerticalOffset:0 labelOffset:0 titleFont:nil titleColor:nil detailFont:nil detailColor:nil imageSize:CGSizeZero];
 	}
 	return self;
 }
@@ -45,7 +46,8 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 							 titleFont:(UIFont *)titleFont
 							titleColor:(UIColor *)titleColor
 							detailFont:(UIFont *)detailFont
-						   detailColor:(UIColor *)detailColor {
+						   detailColor:(UIColor *)detailColor
+							 imageSize:(CGSize)imageSize{
 	if (self = [super initWithFrame:CGRectZero]) {
 		UIFont *title_font = titleFont?:[UIFont systemFontOfSize:15 weight:UIFontWeightRegular];
 		UIFont *detatil_font = detailFont?:[UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
@@ -61,8 +63,16 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 		[self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
 			make.centerX.equalTo(self);
 			make.centerY.equalTo(self).multipliedBy(0.8).offset(verticalOffset);
-			make.width.equalTo(self).multipliedBy(0.3);
-			make.height.equalTo(self.imageView.mas_width);
+			if (imageSize.width > 0) {
+				make.width.mas_equalTo(imageSize.width);
+			} else {
+				make.width.equalTo(self).multipliedBy(0.3);
+			}
+			if (imageSize.height > 0) {
+				make.height.mas_equalTo(imageSize.height);
+			} else {
+				make.height.equalTo(self.imageView.mas_width);
+			}
 		}];
 		[self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 			make.centerX.equalTo(self.imageView);
@@ -220,7 +230,7 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 			make.edges.equalTo(bgView);
 		}];
 	} else {
-		XJHStateView *statusView = [[XJHStateView alloc] initWithVerticalOffset:self.stateProperties.contentVerticalOffset labelOffset:self.stateProperties.labelOffset titleFont:self.stateProperties.titleFont titleColor:self.stateProperties.titleColor detailFont:self.stateProperties.detailFont detailColor:self.stateProperties.detailColor];
+		XJHStateView *statusView = [[XJHStateView alloc] initWithVerticalOffset:self.stateProperties.contentVerticalOffset labelOffset:self.stateProperties.labelOffset titleFont:self.stateProperties.titleFont titleColor:self.stateProperties.titleColor detailFont:self.stateProperties.detailFont detailColor:self.stateProperties.detailColor imageSize:self.stateProperties.imageSize];
 		statusView.imageView.image = [self.stateProperties imageForState:state];
 		statusView.titleLabel.text = [self.stateProperties titleForState:state];
 		statusView.detailLabel.text = [self.stateProperties detailForState:state];

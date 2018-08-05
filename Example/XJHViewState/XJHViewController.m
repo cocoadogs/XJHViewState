@@ -49,6 +49,7 @@
 		@strongify(self)
 		self.view.viewState = XJHViewStateNoData;
 	};
+	self.view.stateProperties.imageSize = CGSizeMake(50, 50);
 	self.view.viewState = XJHViewStateNoData;
 }
 
