@@ -1,18 +1,39 @@
 PODS:
+  - FBRetainCycleDetector (0.1.4)
   - Masonry (1.1.0)
+  - MLeaksFinder (1.0.0):
+    - FBRetainCycleDetector
   - ReactiveObjC (3.1.0)
-  - XJHViewState (0.1.3):
+  - XJHViewState (0.1.4):
     - Masonry (~> 1.1.0)
     - ReactiveObjC (~> 3.1.0)
+    - XJHViewState/Enum (= 0.1.4)
+    - XJHViewState/Property (= 0.1.4)
+    - XJHViewState/State (= 0.1.4)
+  - XJHViewState/Enum (0.1.4):
+    - Masonry (~> 1.1.0)
+    - ReactiveObjC (~> 3.1.0)
+  - XJHViewState/Property (0.1.4):
+    - Masonry (~> 1.1.0)
+    - ReactiveObjC (~> 3.1.0)
+    - XJHViewState/Enum
+  - XJHViewState/State (0.1.4):
+    - Masonry (~> 1.1.0)
+    - ReactiveObjC (~> 3.1.0)
+    - XJHViewState/Enum
+    - XJHViewState/Property
 
 DEPENDENCIES:
   - Masonry (~> 1.1.0)
+  - MLeaksFinder (~> 1.0.0)
   - ReactiveObjC (~> 3.1.0)
   - XJHViewState (from `../`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - FBRetainCycleDetector
     - Masonry
+    - MLeaksFinder
     - ReactiveObjC
 
 EXTERNAL SOURCES:
@@ -20,10 +41,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
-  XJHViewState: 0efc12c0d1b8b6c104e3235405d6d9ef732a468e
+  XJHViewState: b28db98bb5de91b3464e656269f1e7f99ca284a1
 
-PODFILE CHECKSUM: a8bfdd187694d8c901389c2ca5e63eb1a5b86b5e
+PODFILE CHECKSUM: 2737fa334c365235d0e49b88aaf90384a3536d2d
 
 COCOAPODS: 1.5.3

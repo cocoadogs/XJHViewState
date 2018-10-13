@@ -25,6 +25,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholder"]];
+    [self.view.stateProperties configCustomerView:imgView ForState:XJHViewStatePlaceholder];
+    
 	[self.view.stateProperties configImage:[UIImage imageNamed:@"空数据占位图"] forState:XJHViewStateNoData];
 	[self.view.stateProperties configImage:[UIImage imageNamed:@"空数据占位图"] forState:XJHViewStateError];
 	[self.view.stateProperties configImage:[UIImage imageNamed:@"空数据占位图"] forState:XJHViewStateNetworkFail];
@@ -50,7 +54,13 @@
 		self.view.viewState = XJHViewStateNoData;
 	};
 	self.view.stateProperties.imageSize = CGSizeMake(50, 50);
-	self.view.viewState = XJHViewStateNoData;
+    self.view.viewState = XJHViewStatePlaceholder;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.view.viewState = XJHViewStateLoading;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.view.viewState = XJHViewStateNoData;
+        });
+    });
 }
 
 - (void)didReceiveMemoryWarning

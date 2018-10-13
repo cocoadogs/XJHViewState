@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XJHViewState'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'Using runtime to display a placehold subview for a view under different states.'
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,23 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.requires_arc  = true
 
-  s.source_files = 'XJHViewState/Classes/**/*'
+  s.source_files = 'XJHViewState/XJHViewState.h'
+  s.public_header_files = 'XJHViewState/XJHViewState.h'
+  
+  s.subspec 'State' do |ss|
+      ss.source_files = 'XJHViewState/UIView+State.{h,m}'
+      ss.dependency 'XJHViewState/Enum'
+      ss.dependency 'XJHViewState/Property'
+  end
+  
+  s.subspec 'Property' do |ss|
+      ss.source_files = 'XJHViewState/XJHViewStateProperty.{h,m}','XJHViewState/XJHViewStatePublicDataCenter.{h,m}'
+      ss.dependency 'XJHViewState/Enum'
+  end
+  
+  s.subspec 'Enum' do |ss|
+      ss.source_files = 'XJHViewState/XJHViewStateEnum.h'
+  end
   
   # s.resource_bundles = {
   #   'XJHViewState' => ['XJHViewState/Assets/*.png']

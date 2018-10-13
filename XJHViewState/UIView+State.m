@@ -12,6 +12,7 @@
 #import <Masonry/Masonry.h>
 #import "XJHViewStateProperty.h"
 
+const char * kPlaceholderStateViewKey   =   "kPlaceholderStateViewKey";
 const char * kNoDataStateViewKey		=	"kNoDataStateViewKey";
 const char * kErrorStateViewKey			=	"kErrorStateViewKey";
 const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
@@ -259,7 +260,7 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 	if (!objc_getAssociatedObject(self, @selector(loadingView))) {
 		UIView *bgView = [[UIView alloc] init];
 		bgView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:self.stateProperties.indicatorAlpha?:0.7f];
-		UIView *customerView = [self.stateProperties customerViewForState:self.viewState];
+		UIView *customerView = [self.stateProperties customerViewForState:XJHViewStateLoading];
 		if (customerView) {
 			[bgView addSubview:customerView];
 			[customerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -290,6 +291,9 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 - (const char *)stateViewKeyForState:(XJHViewState)state {
 	const char *stateKey;
 	switch (state) {
+        case XJHViewStatePlaceholder:
+            stateKey = kPlaceholderStateViewKey;
+            break;
 		case XJHViewStateNoData:
 			stateKey = kNoDataStateViewKey;
 			break;
@@ -298,6 +302,7 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 			break;
 		case XJHViewStateNetworkFail:
 			stateKey = kNetworkFailStateViewKey;
+            break;
 		default:
 			stateKey = "";
 			break;

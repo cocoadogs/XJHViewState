@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UIView+State.h"
+#import "XJHViewStateEnum.h"
 
 typedef void(^NoDataAction)(void);
 typedef void(^ErrorAction)(void);

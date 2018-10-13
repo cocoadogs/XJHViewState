@@ -10,9 +10,11 @@
 #endif
 #endif
 
-#import "UIView+State.h"
+#import "XJHViewState.h"
+#import "XJHViewStateEnum.h"
 #import "XJHViewStateProperty.h"
 #import "XJHViewStatePublicDataCenter.h"
+#import "UIView+State.h"
 
 FOUNDATION_EXPORT double XJHViewStateVersionNumber;
 FOUNDATION_EXPORT const unsigned char XJHViewStateVersionString[];
