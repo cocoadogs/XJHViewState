@@ -45,8 +45,12 @@
 			
 		}];
 	};
-	[self.webView.stateProperties configImage:[UIImage imageNamed:@"空数据占位图"] forState:XJHViewStateError];
-	[self.webView.stateProperties configTitle:@"网页加载失败" forState:XJHViewStateError];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:self.view.frame];
+    imgView.userInteractionEnabled = YES;
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
+    imgView.clipsToBounds = YES;
+    imgView.image = [UIImage imageNamed:@"web_fail"];
+    [self.webView.stateProperties configCustomerView:imgView ForState:XJHViewStateError];
 	self.webView.viewState = XJHViewStateError;
 }
 

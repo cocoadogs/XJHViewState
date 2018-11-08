@@ -230,6 +230,14 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 		[customerView mas_makeConstraints:^(MASConstraintMaker *make) {
 			make.edges.equalTo(bgView);
 		}];
+        [customerView setUserInteractionEnabled:YES];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] init];
+        @weakify(self)
+        [[tapGesture rac_gestureSignal] subscribeNext:^(id x) {
+            @strongify(self)
+            [self tapAction:state];
+        }];
+        [customerView addGestureRecognizer:tapGesture];
 	} else {
 		XJHStateView *statusView = [[XJHStateView alloc] initWithVerticalOffset:self.stateProperties.contentVerticalOffset labelOffset:self.stateProperties.labelOffset titleFont:self.stateProperties.titleFont titleColor:self.stateProperties.titleColor detailFont:self.stateProperties.detailFont detailColor:self.stateProperties.detailColor imageSize:self.stateProperties.imageSize];
 		statusView.imageView.image = [self.stateProperties imageForState:state];
