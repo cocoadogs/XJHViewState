@@ -223,7 +223,7 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 		return stateView;
 	}
 	UIView *bgView = [[UIView alloc] init];
-	bgView.backgroundColor = [UIColor whiteColor];
+	bgView.backgroundColor = [UIColor clearColor];
 	UIView *customerView = [self.stateProperties customerViewForState:state];
 	if (customerView) {
 		[bgView addSubview:customerView];
