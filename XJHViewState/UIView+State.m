@@ -267,7 +267,7 @@ const char * kNetworkFailStateViewKey	=	"kNetworkFailStateViewKey";
 - (UIView *)loadingView {
 	if (!objc_getAssociatedObject(self, @selector(loadingView))) {
 		UIView *bgView = [[UIView alloc] init];
-		bgView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:self.stateProperties.indicatorAlpha?:0.7f];
+		bgView.backgroundColor = [UIColor clearColor];
 		UIView *customerView = [self.stateProperties customerViewForState:XJHViewStateLoading];
 		if (customerView) {
 			[bgView addSubview:customerView];
