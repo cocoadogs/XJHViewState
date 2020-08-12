@@ -4,20 +4,20 @@ PODS:
   - MLeaksFinder (1.0.0):
     - FBRetainCycleDetector
   - ReactiveObjC (3.1.1)
-  - XJHViewState (0.1.8):
+  - XJHViewState (0.1.9):
     - Masonry (~> 1.1.0)
     - ReactiveObjC (~> 3.1.0)
-    - XJHViewState/Enum (= 0.1.8)
-    - XJHViewState/Property (= 0.1.8)
-    - XJHViewState/State (= 0.1.8)
-  - XJHViewState/Enum (0.1.8):
+    - XJHViewState/Enum (= 0.1.9)
+    - XJHViewState/Property (= 0.1.9)
+    - XJHViewState/State (= 0.1.9)
+  - XJHViewState/Enum (0.1.9):
     - Masonry (~> 1.1.0)
     - ReactiveObjC (~> 3.1.0)
-  - XJHViewState/Property (0.1.8):
+  - XJHViewState/Property (0.1.9):
     - Masonry (~> 1.1.0)
     - ReactiveObjC (~> 3.1.0)
     - XJHViewState/Enum
-  - XJHViewState/State (0.1.8):
+  - XJHViewState/State (0.1.9):
     - Masonry (~> 1.1.0)
     - ReactiveObjC (~> 3.1.0)
     - XJHViewState/Enum
@@ -45,7 +45,7 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  XJHViewState: 3e387903759a93470bcf9fa2d2ee105b3789dff7
+  XJHViewState: 85ba88b67d839f9a687525a8928cce3e6e1d8f2d
 
 PODFILE CHECKSUM: 2737fa334c365235d0e49b88aaf90384a3536d2d
 

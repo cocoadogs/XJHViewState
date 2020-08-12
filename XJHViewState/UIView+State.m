@@ -175,6 +175,7 @@ const char * kNetworkFailStateViewKey    =    "kNetworkFailStateViewKey";
         }
         
         if (stateView) {
+            stateView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
             [self addSubview:stateView];
             stateView.alpha = 0;
             [UIView animateWithDuration:0.25 animations:^{
