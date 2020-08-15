@@ -201,6 +201,7 @@ const char * kNetworkFailStateViewKey    =    "kNetworkFailStateViewKey";
 - (UIView *)stateViewForState:(XJHViewState)state {
     UIView *stateView = objc_getAssociatedObject(self, [self stateViewKeyForState:state]);
     if (stateView) {
+        stateView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         return stateView;
     }
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
