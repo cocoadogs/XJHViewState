@@ -4,7 +4,6 @@ use_frameworks!
 
 target 'XJHViewState_Example' do
   pod 'XJHViewState', :path => '../'
-  
   pod 'Masonry', '~> 1.1.0'
   pod 'ReactiveObjC', '~> 3.1.0'
   pod 'MLeaksFinder', '~> 1.0.0'

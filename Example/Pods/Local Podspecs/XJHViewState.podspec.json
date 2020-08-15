@@ -1,6 +1,6 @@
 {
   "name": "XJHViewState",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "summary": "Using runtime to display a placehold subview for a view under different states.",
   "description": "Using runtime to display a placehold subview for a view under different states.",
   "homepage": "https://github.com/cocoadogs/XJHViewState",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/cocoadogs/XJHViewState.git",
-    "tag": "0.1.9"
+    "tag": "0.1.10"
   },
   "platforms": {
     "ios": "9.0"
@@ -22,9 +22,6 @@
   "source_files": "XJHViewState/XJHViewState.h",
   "public_header_files": "XJHViewState/XJHViewState.h",
   "dependencies": {
-    "Masonry": [
-      "~> 1.1.0"
-    ],
     "ReactiveObjC": [
       "~> 3.1.0"
     ]

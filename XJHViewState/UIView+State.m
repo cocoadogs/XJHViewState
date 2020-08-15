@@ -9,7 +9,6 @@
 #import "UIView+State.h"
 #import <objc/runtime.h>
 #import <ReactiveObjC/ReactiveObjC.h>
-#import <Masonry/Masonry.h>
 #import "XJHViewStateProperty.h"
 
 const char * kPlaceholderStateViewKey   =   "kPlaceholderStateViewKey";
@@ -61,28 +60,16 @@ const char * kNetworkFailStateViewKey    =    "kNetworkFailStateViewKey";
         [self addSubview:self.imageView];
         [self addSubview:self.titleLabel];
         [self addSubview:self.detailLabel];
-        [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self);
-            make.centerY.equalTo(self).multipliedBy(0.8).offset(verticalOffset);
-            if (imageSize.width > 0) {
-                make.width.mas_equalTo(imageSize.width);
-            } else {
-                make.width.equalTo(self).multipliedBy(0.3);
-            }
-            if (imageSize.height > 0) {
-                make.height.mas_equalTo(imageSize.height);
-            } else {
-                make.height.equalTo(self.imageView.mas_width);
-            }
-        }];
-        [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.imageView);
-            make.top.equalTo(self.imageView.mas_bottom).offset(labelOffset);
-        }];
-        [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.imageView);
-            make.top.equalTo(self.titleLabel.mas_bottom).offset(6);
-        }];
+        
+        CGFloat width = imageSize.width > 0 ? imageSize.width : self.bounds.size.width * 0.3;
+        CGFloat height = imageSize.height > 0 ? imageSize.height : self.bounds.size.width * 0.3;
+        CGFloat centerY = self.center.y + verticalOffset;
+        
+        self.imageView.frame = CGRectMake(self.center.x - width / 2, centerY - height / 2, width, height);
+        
+        self.titleLabel.center = CGPointMake(self.center.x, centerY + height / 2 + labelOffset + ceil(titleFont.capHeight / 2));
+        
+        self.detailLabel.center = CGPointMake(self.center.x, centerY + height / 2 + labelOffset + titleFont.capHeight + ceil(detailFont.capHeight / 2) + 6);
     }
     return self;
 }
@@ -216,14 +203,14 @@ const char * kNetworkFailStateViewKey    =    "kNetworkFailStateViewKey";
     if (stateView) {
         return stateView;
     }
-    UIView *bgView = [[UIView alloc] init];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+    bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     bgView.backgroundColor = [UIColor clearColor];
     UIView *customerView = [self.stateProperties customerViewForState:state];
     if (customerView) {
         [bgView addSubview:customerView];
-        [customerView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(bgView);
-        }];
+        customerView.frame = CGRectMake(0, 0, bgView.bounds.size.width, bgView.bounds.size.height);
+        customerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [customerView setUserInteractionEnabled:YES];
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] init];
         @weakify(self)
@@ -246,9 +233,8 @@ const char * kNetworkFailStateViewKey    =    "kNetworkFailStateViewKey";
         }];
         [statusView addGestureRecognizer:tapGesture];
         [bgView addSubview:statusView];
-        [statusView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(bgView);
-        }];
+        statusView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        statusView.frame = CGRectMake(0, 0, bgView.bounds.size.width, bgView.bounds.size.height);
     }
     [self setStateView:bgView forState:state];
     return bgView;
@@ -260,25 +246,23 @@ const char * kNetworkFailStateViewKey    =    "kNetworkFailStateViewKey";
 
 - (UIView *)loadingView {
     if (!objc_getAssociatedObject(self, @selector(loadingView))) {
-        UIView *bgView = [[UIView alloc] init];
+        UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
         bgView.backgroundColor = [UIColor clearColor];
+        bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         UIView *customerView = [self.stateProperties customerViewForState:XJHViewStateLoading];
         if (customerView) {
+            customerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
             [bgView addSubview:customerView];
-            [customerView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(bgView);
-            }];
+            customerView.frame = CGRectMake(0, 0, bgView.bounds.size.width, bgView.bounds.size.height);
         } else {
             UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] init];
+            indicator.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
             indicator.backgroundColor= UIColor.clearColor;
             indicator.color = UIColor.darkGrayColor;
             [bgView addSubview:indicator];
+            indicator.center = CGPointMake(self.center.x + self.stateProperties.indicatorOffsetX, self.bounds.size.height / 2 + self.stateProperties.indicatorOffsetY);
             [indicator startAnimating];
             indicator.hidesWhenStopped = YES;
-            [indicator mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerX.equalTo(bgView).offset(self.stateProperties.indicatorOffsetX);
-                make.centerY.equalTo(bgView).offset(self.stateProperties.indicatorOffsetY);
-            }];
         }
         self.loadingDataView = bgView;
         return bgView;
