@@ -170,12 +170,6 @@ const char * kNetworkFailStateViewKey    =    "kNetworkFailStateViewKey";
             } completion:^(BOOL finished) {
                 
             }];
-            UIEdgeInsets insets = self.stateProperties.loadingAreaInsets;
-            CGFloat x = self.bounds.origin.x + insets.left;
-            CGFloat y = self.bounds.origin.y + insets.top;
-            CGFloat width = [self isKindOfClass:[UIScrollView class]] ? self.bounds.size.width : self.bounds.size.width - fabs(insets.left - insets.right);
-            CGFloat height = [self isKindOfClass:[UIScrollView class]] ? self.bounds.size.height : self.bounds.size.height - fabs(insets.top - insets.bottom);
-            stateView.frame = CGRectMake(x, y, width, height);
             [self bringSubviewToFront:stateView];
         }
     }
